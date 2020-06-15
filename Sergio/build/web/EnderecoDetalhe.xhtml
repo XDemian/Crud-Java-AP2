@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<xhtml xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Detalhe de endereço</title>
+    </h:head>
+    <h:body>
+         <h:form>    
+            <h1>Detalhe de um Endereço</h1>
+            <table>
+
+                <tbody>
+                  
+                    <tr>  
+                    
+                        <td><h:outputLabel value=" CODIGO"/></td>
+                        <td><h:outputLabel value=" #{enderecoController.endereco.idendereco}"/></td>
+                    </tr>
+                    <tr>
+                        <td> <h:outputLabel value="Endereço"/> </td>
+                        <td> <h:outputLabel value="#{enderecoController.endereco.endereco}"/></td>
+                    </tr>
+                    <tr>
+                        <td> <h:outputLabel value="Endereço 2"/> </td>
+                        <td> <h:outputLabel value="#{enderecoController.endereco.endereco2}"/></td>
+                    </tr>
+                    <tr>
+                       <td> <h:outputLabel value="Bairro"/> </td>
+                       <td> <h:outputLabel value="#{enderecoController.endereco.bairro}"/></td>
+                    </tr>
+                    <tr>
+                      <td> <h:outputLabel value="Id Cidade"/> </td>
+                      <td> <h:outputLabel value="#{enderecoController.endereco.idcidade}"/></td>
+                    </tr>
+                    <tr>
+                       <td> <h:outputLabel value="Cep"/> </td>
+                       <td> <h:outputLabel value="#{enderecoController.endereco.cep}" /></td>
+                    </tr>
+                    <tr>
+                        <td> <h:outputLabel value="Telefone"/> </td>
+                        <td> <h:outputLabel value="#{enderecoController.endereco.telefone}" /></td>
+                    </tr>
+                    <tr>
+                       <td> <h:outputLabel value="Data da Ultima ATaualização"/> </td>
+                       <td> <h:outputLabel value="#{enderecoController.endereco.ultimaatualizacao}">
+                           <f:convertDateTime pattern="dd/MM/yy"/>
+                            </h:outputLabel>
+                       </td>
+                    </tr>
+                </tbody>
+            </table>         
+        
+        <h:commandButton value="Voltar" style="width: 48%" action="voltaParaListagem"/>
+        
+        </h:form>
+    </h:body>
+</xhtml>
+

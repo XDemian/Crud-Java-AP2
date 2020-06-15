@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+       <h:form>
+            <h1>LISTAGEM DE ENDEREÇOS CADASTRADOS</h1>
+            
+            <h:commandButton value="VOLTAR" style="width: 100%" action="vaiParaIndex"/>
+            <h:commandButton value ="CRIAR NOVA Cidade" style="width: 100% " action="#{cidadeControle.prepararInclusao()}"/>
+            
+            
+            <h:dataTable style="width: 100%"
+                         var="umCidade"
+                         value="#{cidadeControle.cidadeo}"
+                         border= "1">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputLabel value="codigoIdCidade"/>
+                    </f:facet>
+                    
+                    <h:outputLabel value="#{umCidade.idcidade}"/>
+                </h:column>
+                
+                   <h:column>
+                    <f:facet name="header">
+                        <h:outputLabel value="nomeDaCidade"/>
+                    </f:facet>
+                    
+                    <h:outputLabel value="#{umCidade.cidade}"/>
+                </h:column>
+                
+                    <h:column>
+                    <f:facet name="header">
+                        <h:outputLabel value="nomeDoPais"/>
+                    </f:facet>
+                    
+                    <h:outputLabel value="#{umCidade.pais}"/>
+                </h:column>
+                     
+              
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputLabel value="dataDaUltimaAtualizacao"/>
+                    </f:facet>
+                    
+                    <h:outputLabel value="#{umCidade.ultimaAtualizacao}">
+                        <f:convertDateTime pattern="dd/MM/yyy"/>
+                    </h:outputLabel>
+                </h:column>
+                                      
+           
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputLabel value="Ação"/>
+                    </f:facet>
+                    
+                    <h:commandLink value="Detalhe" action="irParaDetalhe">
+                        <f:setPropertyActionListener target="#{cidadeControle.cidade}" value="#{umCidade}"/>
+                    </h:commandLink>
+                  
+                    <h:outputLabel value="|"/>                 
+                    <h:commandLink value="Editar" action="irParaEditar">
+                        <f:setPropertyActionListener target="#{cidadeControle.cidade}" value="#{umCidade}"/>
+                    </h:commandLink>
+                    
+                    <h:outputLabel value="|"/>                   
+                    <h:commandLink value="Deletar" action="#{cidadeControle.finalizaDelecao()}">
+                    <f:setPropertyActionListener target="#{cidadeControle.cidade}" value="#{umCidade}"/>
+                     </h:commandLink>
+                </h:column>
+                
+            </h:dataTable>
+        </h:form>
+    </h:body>
+</html>
+
